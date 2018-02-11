@@ -1,0 +1,46 @@
+{
+  "name": "nrouter",
+  "version": "0.0.1",
+  "description": "a objective router middleware for koa/express",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ngtmuzi/nRouter.git"
+  },
+  "keywords": [
+    "router",
+    "middleware",
+    "koa",
+    "express"
+  ],
+  "author": "ngtmuzi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ngtmuzi/nRouter/issues"
+  },
+  "homepage": "https://github.com/ngtmuzi/nRouter#readme",
+  "devDependencies": {
+    "express": "^4.16.2",
+    "jest": "^22.2.2",
+    "koa": "^2.4.1",
+    "supertest": "^3.0.0"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coverageDirectory": ".coverage",
+    "globals": {
+      "__INTEST__": true
+    }
+  },
+  "dependencies": {
+    "lodash": "^4.17.5",
+    "path-to-regexp": "^2.1.0"
+  }
+}
