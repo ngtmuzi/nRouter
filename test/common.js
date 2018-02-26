@@ -5,14 +5,13 @@
 
 const request = require('supertest');
 
-const nr   = require('../lib/koa');
 const pave = require('../lib/pave');
 
-const makeRouter = function () {
-  return () => nr(...arguments);
-};
-
 module.exports = function runtest({nr, createServer}) {
+
+  const makeRouter = function () {
+    return () => nr(...arguments);
+  };
 
   describe('Type check', function () {
     test('through Number will throw Error', () => {
