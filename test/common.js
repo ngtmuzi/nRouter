@@ -50,10 +50,6 @@ module.exports = function runtest({nr, createServer}) {
         .toThrow();
     });
 
-    test('pave function throw a error with code', () => {
-      expect(() => nr.reject(400, 'params error', {a: 1}))
-        .toThrow();
-    });
   });
 
   describe('Route rule check', function () {
