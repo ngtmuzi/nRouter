@@ -27,6 +27,9 @@
   },
   "homepage": "https://github.com/ngtmuzi/nRouter#readme",
   "devDependencies": {
+    "@types/koa": "^2.11.2",
+    "@types/lodash": "^4.14.149",
+    "@types/node": "^13.9.2",
     "express": "^4.16.2",
     "jest": "^22.2.2",
     "koa": "^2.4.1",
@@ -35,12 +38,14 @@
   "jest": {
     "collectCoverage": true,
     "coverageDirectory": ".coverage",
+    "verbose": true,
+    "testURL": "http://localhost/",
     "globals": {
       "__INTEST__": true
     }
   },
   "dependencies": {
-    "lodash": "^4.17.10",
-    "path-to-regexp": "^2.1.0"
+    "lodash": "^4.17.15",
+    "path-to-regexp": "^6.1.0"
   }
 }

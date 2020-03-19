@@ -38,22 +38,6 @@ function hello(msg,headers,ctx,next) {
 app.listen(9000);
 ```
 
-### for express
-```javascript
-const nRouter = require('./lib/express');
-const http    = require('http');
-const express = require('express');
-
-const app = new express();
-app.use(nRouter({hello}));
-
-function hello(msg,headers,ctx,next) {
-  return 'world';
-}
-
-http.createServer(app).listen(9000);
-```
-
 ## API
 
 ### nRouter(obj, resolveFn, rejectFn)
