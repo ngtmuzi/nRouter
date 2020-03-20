@@ -10,21 +10,23 @@ import * as  pathToRegexp from 'path-to-regexp';
 import pave from './pave';
 import * as koa from 'koa'
 
+export declare interface routerDefine {
+  [key: string]: routerDefine | workFn | Rest
+}
 
-
-interface workFn {
+export declare interface workFn {
   (message: any, headers: any, ctx: koa.Context, next: koa.Next): any
 }
 
-interface ResolveFn {
+export declare interface ResolveFn {
   (fn: workFn, message: any, headers: any, ctx: koa.Context, next: koa.Next): Promise<any>
 }
 
-interface RejectFn {
+export declare interface RejectFn {
   (error: error, message: any, headers: any, ctx: koa.Context, next: koa.Next): Promise<any>
 }
 
-interface pathMaps {
+export declare interface pathMaps {
   regExp: RegExp,
   path: string,
   fn: workFn,
@@ -32,13 +34,13 @@ interface pathMaps {
   method: string
 }
 
-interface error extends Error {
+export declare interface error extends Error {
   code?: number,
   msg?: string | any,
   ext?: string | any
 }
 
-interface Restful {
+export declare interface Restful {
   get?: workFn,
   post?: workFn,
   put?: workFn,
@@ -88,7 +90,7 @@ const defaultReject: RejectFn = async function (error, originMsg, headers, ctx, 
  * @param reject  {Function}  自定义的错误处理函数
  * @returns {Function} 中间件
  */
-export function nRouter(router = {}, resolve: ResolveFn = defaultResolve, reject: RejectFn = defaultReject): koa.Middleware {
+export function nRouter(router: routerDefine = {}, resolve: ResolveFn = defaultResolve, reject: RejectFn = defaultReject): koa.Middleware {
   const pathMaps = makePathMaps(router);
   return matchPathMaps(pathMaps, resolve, reject);
 }
@@ -99,7 +101,7 @@ export function nRouter(router = {}, resolve: ResolveFn = defaultResolve, reject
  * @param router {Object}
  * @returns {Array} 正则数组
  */
-function makePathMaps(router = {}): pathMaps[] {
+function makePathMaps(router: routerDefine = {}): pathMaps[] {
   return lodash.flatMap(pave(router, '', '/'), (fn: workFn | Rest, path) => {
     path = '/' + path;
 

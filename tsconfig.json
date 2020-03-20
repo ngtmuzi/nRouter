@@ -3,10 +3,11 @@
         "module": "commonjs",
         "outDir": "./lib",
         "target": "es2017",
-        "alwaysStrict":true
+        // "declaration": true,
+        "alwaysStrict": true,
+        "removeComments":true
     },
     "include": [
         "./src/**/*"
     ],
-    
 }
