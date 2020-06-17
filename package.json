@@ -2,14 +2,13 @@
   "name": "nrouter",
   "version": "0.0.1",
   "description": "a objective router middleware for koa/express",
-  "main": "./lib/nRouter.js",
+  "main": "index.js",
   "directories": {
     "lib": "lib",
     "test": "test"
   },
   "scripts": {
-    "test": "jest",
-    "build": "tsc"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -28,18 +27,17 @@
   },
   "homepage": "https://github.com/ngtmuzi/nRouter#readme",
   "devDependencies": {
-    "@types/koa": "^2.11.2",
     "@types/lodash": "^4.14.149",
     "@types/node": "^13.9.2",
-    "jest": "^25.1.0",
+    "@types/path-to-regexp": "^1.7.0",
+    "express": "^4.16.2",
+    "jest": "^22.2.2",
     "koa": "^2.4.1",
-    "supertest": "^4.0.2"
+    "supertest": "^3.0.0"
   },
   "jest": {
     "collectCoverage": true,
     "coverageDirectory": ".coverage",
-    "verbose": true,
-    "testURL": "http://localhost/",
     "globals": {
       "__INTEST__": true
     }
@@ -47,6 +45,5 @@
   "dependencies": {
     "lodash": "^4.17.15",
     "path-to-regexp": "^6.1.0"
-  },
-  "types": "./types"
+  }
 }
